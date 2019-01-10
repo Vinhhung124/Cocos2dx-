@@ -18,9 +18,9 @@ bool LogoScene::init()
 		return false;
 	}
 	auto screenSize = Director::getInstance()->getVisibleSize();
-	static auto logo = Sprite::create("mySprite.png");
+	static auto logo = Sprite::create("ninja.png");
 	logo->setPosition(screenSize.width / 2, screenSize.height / 2);
-	logo->setScale(0.6);
+	logo->setScale(0.2);
 	addChild(logo);
 	auto moveTo = MoveTo::create(2, Vec2(200,200));
 	logo->runAction(moveTo);
