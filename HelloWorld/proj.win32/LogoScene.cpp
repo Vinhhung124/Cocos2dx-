@@ -32,7 +32,7 @@ bool LogoScene::init()
 	//auto fadeOut = FadeOut::create(1.0f);
 	//auto rotateTo = RotateTo::create(4.0f, 180.0f);
 	//auto squence = Sequence::create(moveTo,rotateTo,fadeOut,nullptr);
-	logo->runAction(moveTo);
+	//logo->runAction(moveTo);
 
 	//auto spawn = Spawn::create(moveTo, Rotate1, nullptr);
  //   logo->runAction(spawn);

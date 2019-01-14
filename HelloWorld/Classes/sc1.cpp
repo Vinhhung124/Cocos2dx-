@@ -1,6 +1,7 @@
 #include "sc1.h"
 #include"cocos2d.h"
 #include"ui\CocosGUI.h"
+#include"sc2.h"
 using namespace std;
 USING_NS_CC;
 Scene* sc1::createScene()
@@ -10,6 +11,7 @@ Scene* sc1::createScene()
 	scene->addChild(layer);
 	return scene;
 }
+
 bool sc1::init()
 {
 	if (!Layer::init())
@@ -30,23 +32,23 @@ bool sc1::init()
 
 
 	// Creat menu
-	auto itemPlay = MenuItemFont::create("Play", nullptr);
-	auto itemSetting = MenuItemFont::create("Setting", nullptr);
+	auto itemPlay = MenuItemFont::create("Play", CC_CALLBACK_1(sc1::PlayGameClick,this));
+
 	auto itemMoreGame = MenuItemFont::create("More Game", nullptr);
 	auto itemAbout = MenuItemFont::create("About", nullptr);
 	itemPlay->setPosition(screenSize.width / 2, screenSize.height - 80);
-	itemSetting->setPosition(screenSize.width / 2, screenSize.height - 120);
-	itemMoreGame->setPosition(screenSize.width / 2, screenSize.height - 160);
-	itemAbout->setPosition(screenSize.width / 2, screenSize.height - 200);
+
+	itemMoreGame->setPosition(screenSize.width / 2, screenSize.height - 120);
+	itemAbout->setPosition(screenSize.width / 2, screenSize.height - 160);
 	itemPlay->setFontName("fonts/arial");
-	itemSetting->setFontName("fonts/arial");
+
 	itemMoreGame->setFontName("fonts/arial");
 	itemAbout->setFontName("fonts/arial");
 	itemPlay->setColor(Color3B::GREEN);
-	itemSetting->setColor(Color3B::RED);
+
 	itemMoreGame->setColor(Color3B::YELLOW);
 	itemAbout->setColor(Color3B::ORANGE);
-	auto menuLabel = Menu::create(itemPlay, itemSetting, itemMoreGame, itemAbout, nullptr);
+	auto menuLabel = Menu::create(itemPlay, itemMoreGame, itemAbout, nullptr);
 	menuLabel->setPosition(0, 0);
 	addChild(menuLabel);
 	//Creat button rating
@@ -80,7 +82,7 @@ bool sc1::init()
 		log("CheckBox state: %d", checkbox->isSelected());
 		CCLOG("ab");
 	});
-	checkbox->setPosition(Vec2(screenSize.width-220,50));
+	checkbox->setPosition(Vec2(screenSize.width - 220, 50));
 	checkbox->setEnabled(true);
 	addChild(checkbox);
 
@@ -110,17 +112,40 @@ bool sc1::init()
 
 
 
-	//static auto slider = ui::Slider::create();
-	//slider->loadBarTexture("slider_bar_bg.png");
-	//slider->loadSlidBallTextures("slider_ball_normal.png",
-	//	"slider_ball_pressed.png", "slider_ball_disable.png");
-	//slider->loadProgressBarTexture("slider_bar_pressed.png");
-	//slider->setPercent(10);
-	//slider->setPosition(Vec2(screenSize.width / 2, 140));
-	//slider->addClickEventListener([](Ref* event) {
-	//	log("Slider: %d", slider->getPercent());
-	//});
-	//addChild(slider);
-	
+//static auto slider = ui::Slider::create();
+//slider->loadBarTexture("slider_bar_bg.png");
+//slider->loadSlidBallTextures("slider_ball_normal.png",
+//	"slider_ball_pressed.png", "slider_ball_disable.png");
+//slider->loadProgressBarTexture("slider_bar_pressed.png");
+//slider->setPercent(10);
+//slider->setPosition(Vec2(screenSize.width / 2, 140));
+//slider->addClickEventListener([](Ref* event) {
+//	log("Slider: %d", slider->getPercent());
+//});
+//addChild(slider);
+/*auto gotoNext = CallFunc::create([]() {
+	Director::getInstance()->replaceScene(sc2::createScene());
+});
+auto sequence = Sequence::create(DelayTime::create(2), gotoNext,
+	nullptr);
+runAction(sequence);*/
+
+/*auto gotoNext = CallFunc::create([]() {
+	Director::getInstance()->replaceScene(sc2::createScene());
+});
+auto sequence = Sequence::create(DelayTime::create(2), gotoNext,
+	nullptr);
+runAction(sequence);*/
+
 	return true;
 }
+	void sc1::PlayGameClick(cocos2d::Ref* pSender)
+	{
+		auto gotoNext = CallFunc::create([]() {
+			Director::getInstance()->replaceScene(sc2::createScene());
+		});
+		auto sequence = Sequence::create(DelayTime::create(0.1), gotoNext,
+			nullptr);
+		runAction(sequence);
+	}
+

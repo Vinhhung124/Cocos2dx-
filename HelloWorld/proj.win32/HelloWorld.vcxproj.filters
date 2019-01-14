@@ -24,7 +24,10 @@
     <ClCompile Include="LogoScene.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Project\HelloWorld\Classes\sc1.cpp">
+    <ClCompile Include="..\Classes\sc1.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\sc2.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,7 +44,10 @@
     <ClInclude Include="LogoScene.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Project\HelloWorld\Classes\sc1.h">
+    <ClInclude Include="..\Classes\sc1.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\sc2.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
