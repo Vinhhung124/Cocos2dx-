@@ -1,0 +1,1 @@
+ani_01.png.png 0 0, ani_02.png.png 102 0, ani_03.png.png 224 0, ani_04.png.png 316 0, ani_05.png.png 0 88, ani_06.png.png 224 106.
